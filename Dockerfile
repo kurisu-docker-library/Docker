@@ -10,10 +10,10 @@
 FROM centos:6.6
 
 # address any potential security concerns. 
-RUN yum -y update && yum clean all
-
 # install basic packages
-RUN yum install -y wget tar gcc which rsyslog openssh-server
+RUN yum -y update \
+    && yum install -y wget tar gcc which rsyslog openssh-server \
+    && yum clean all
 
 # set timezone
 RUN rm -f /etc/localtime
