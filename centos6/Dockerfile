@@ -20,5 +20,7 @@ RUN yum install -y wget tar gcc which
 RUN rm -f /etc/localtime
 RUN ln -s /usr/share/zoneinfo/UTC /etc/localtime
 
+RUN echo 'root:root' |chpasswd
+
 # install rsyslogd
 RUN yum install -y rsyslog
