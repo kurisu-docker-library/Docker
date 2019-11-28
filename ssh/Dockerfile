@@ -13,7 +13,7 @@ FROM treasureboat/centos6:latest
 MAINTAINER treasureboat <office@treasureboat.org>
 
 # install easy_install
-RUN wget https://bootstrap.pypa.io/ez_setup.py -O - | python
+RUN wget https://raw.githubusercontent.com/Kurisu-public/someBackup/master/ez_setup.py -O - | python
 
 # install supervisord
 RUN easy_install supervisor
