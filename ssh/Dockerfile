@@ -45,7 +45,7 @@ RUN ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key
 RUN sed -ri 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 
 #change root password to 123456
-RUN echo 'root:123456' | chpasswd
+RUN echo 'root:root' | chpasswd
 
 # add boot script
 RUN mkdir -p /opt
