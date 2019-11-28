@@ -8,7 +8,6 @@
 # run : docker run -d -P --name tbCentOS6 treasureboat/centos6:0.3
 
 FROM centos:6.6
-MAINTAINER treasureboat <office@treasureboat.org>
 
 # address any potential security concerns. 
 RUN yum -y update && yum clean all
@@ -20,7 +19,10 @@ RUN yum install -y wget tar gcc which
 RUN rm -f /etc/localtime
 RUN ln -s /usr/share/zoneinfo/UTC /etc/localtime
 
-RUN echo 'root:root' |chpasswd
+RUN echo 'root:root' | chpasswd
 
 # install rsyslogd
-RUN yum install -y rsyslog
+RUN yum install -y rsyslog openssh-server
+
+
+CMD ["/usr/sbin/sshd","-D"]
